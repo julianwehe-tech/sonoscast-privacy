@@ -6,128 +6,115 @@
 <title>Datenschutzerklärung – SonosCast</title>
 <style>
   :root { color-scheme: light dark; }
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.65; max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
-    color: #1a1a1a; background: #fff;
-  }
-  @media (prefers-color-scheme: dark) { body { color: #e8e8e8; background: #141414; } }
-  h1 { font-size: 1.9rem; line-height: 1.2; margin-bottom: .35rem; }
-  h2 { font-size: 1.2rem; margin-top: 2.25rem; }
-  .stand { color: #666; font-size: .9rem; margin-top: 0; }
-  @media (prefers-color-scheme: dark) { .stand { color: #999; } }
-  ul { padding-left: 1.2rem; }
-  li { margin-bottom: .4rem; }
+  body { font-family: system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.65;
+    max-width:48rem; margin:0 auto; padding:2.5rem 1.25rem 5rem; color:#1a1a1a; background:#fff; }
+  @media (prefers-color-scheme:dark) { body { color:#e8e8e8; background:#141414; } }
+  h1 { font-size:1.9rem; line-height:1.2; margin-bottom:.35rem; }
+  h2 { font-size:1.25rem; margin-top:2.3rem; }
+  h3 { font-size:1.05rem; margin-top:1.6rem; }
+  .stand { color:#666; font-size:.9rem; margin-top:0; }
+  @media (prefers-color-scheme:dark) { .stand { color:#aaa; } }
+  table { width:100%; border-collapse:collapse; font-size:.94rem; }
+  th,td { border:1px solid #8886; padding:.6rem; vertical-align:top; text-align:left; }
+  ul,ol { padding-left:1.3rem; }
+  code { font-size:.9em; }
 </style>
 </head>
 <body>
+<h1>Datenschutzerklärung – SonosCast</h1>
+<p class="stand">Fassung vom 22. August 2026 · Version 2.2 · versionCode 8 · Paket <code>com.jwehe.sonoscast</code></p>
 
-<h1>Datenschutzerklärung</h1>
-<p class="stand">SonosCast für Android · Paket com.jwehe.sonoscast · Fassung vom 13. August 2026</p>
+<h2>1. Verantwortlicher</h2>
+<p>ITCJW / IT-Consulting Julian Wehe<br>Julian Wehe<br>Wiesenweg 27<br>
+61381 Friedrichsdorf, Deutschland<br>E-Mail: <a href="mailto:info@healing-tech.de">info@healing-tech.de</a></p>
 
-<p>
-  Diese Datenschutzerklärung gilt ausdrücklich für die im Google Play Store angebotene Android-App
-  <strong>SonosCast</strong> des dort angezeigten Entwicklers <strong>ITCJW</strong>.
-</p>
+<h2>2. Kurzfassung</h2>
+<p>SonosCast benötigt kein Nutzerkonto und enthält keine Analyse-, Tracking- oder Werbe-SDKs.
+Es gibt keinen vom Entwickler betriebenen Server. Die App überträgt unterstütztes Android-Audio
+ausschließlich innerhalb des lokalen Netzwerks zwischen Telefon und ausgewähltem Lautsprecher.
+Der Entwickler empfängt oder speichert dabei keine personenbezogenen Daten.</p>
 
-<h2>Verantwortlicher</h2>
-<p>
-  ITCJW / IT-Consulting Julian Wehe<br>
-  Julian Wehe<br>
-  Wiesenweg 27<br>
-  61381 Friedrichsdorf, Deutschland<br>
-  E-Mail: <a href="mailto:info@healing-tech.de">info@healing-tech.de</a>
-</p>
+<h2>3. Zweck und Funktionsweise</h2>
+<ol>
+  <li><strong>Lautsprechersuche:</strong> Die App sucht per Android Network Service Discovery
+  (mDNS/DNS-SD, <code>_sonos._tcp.</code>) im lokalen Netzwerk. Gerätename, lokale IP-Adresse und
+  Port werden nur im Arbeitsspeicher verarbeitet.</li>
+  <li><strong>Aufnahmefreigabe:</strong> Die Audioaufnahme startet erst nach einer In-App-Erklärung,
+  einer aktiven Nutzerentscheidung und Androids MediaProjection-Freigabe.</li>
+  <li><strong>Audioaufnahme:</strong> Ab Android 10 erfasst Android Playback Capture ausschließlich
+  freigegebenes Wiedergabeaudio der Verwendungsarten Medien, Spiel und „unbekannt“. Das Mikrofon
+  wird nicht aufgenommen. Apps können ihre Audioaufnahme blockieren; DRM-geschützte Inhalte,
+  Telefonate und weitere nicht freigegebene Quellen können stumm bleiben.</li>
+  <li><strong>Lokaler Stream:</strong> Das Audio wird als PCM/WAV-Strom vorübergehend im
+  Arbeitsspeicher verarbeitet und über einen HTTP-Server auf dem Telefon bereitgestellt. Es wird
+  nicht als Datei gespeichert.</li>
+  <li><strong>Wiedergabe und Steuerung:</strong> Der ausgewählte Lautsprecher wird innerhalb des
+  lokalen Netzes per UPnP/SOAP angewiesen, den Stream abzurufen. Pause, Fortsetzen und Lautstärke
+  werden ebenfalls lokal gesteuert.</li>
+</ol>
 
-<h2>Kurzfassung</h2>
-<p>
-  SonosCast überträgt den auf deinem Telefon abgespielten Ton an einen Sonos-Lautsprecher in deinem
-  eigenen WLAN. <strong>Es werden keine personenbezogenen Daten erhoben, gespeichert oder an uns
-  oder an Dritte übermittelt.</strong> Die App hat keinen Server, kein Nutzerkonto, keine Anmeldung,
-  keine Analyse- oder Trackingdienste und keine Werbung. Der Ton verlässt dein lokales Netzwerk
-  nicht.
-</p>
+<h2>4. Lokal verarbeitete Daten</h2>
+<table>
+<thead><tr><th>Daten</th><th>Zweck</th><th>Speicherung</th></tr></thead>
+<tbody>
+<tr><td>Freigegebenes Wiedergabeaudio</td><td>Aktive Übertragung an den ausgewählten Lautsprecher</td><td>Nur flüchtiger Arbeitsspeicher; keine Datei</td></tr>
+<tr><td>Name, lokale IP und Port gefundener Lautsprecher</td><td>Auswahl und lokale Steuerung</td><td>Nur im Arbeitsspeicher</td></tr>
+<tr><td>Lokale IP des Telefons</td><td>Lokaler Stream-Endpunkt für den Lautsprecher</td><td>Nicht dauerhaft gespeichert</td></tr>
+<tr><td>Lautsprecherlautstärke</td><td>Anzeige und Steuerung</td><td>Nur im Arbeitsspeicher</td></tr>
+<tr><td>Technische Android-Logmeldungen</td><td>Lokale Fehlerdiagnose</td><td>Verbleiben auf dem Gerät; werden von der App nicht versendet</td></tr>
+</tbody></table>
+<p>Nicht verarbeitet werden insbesondere Kontodaten, Kontakte, Fotos, Dateien, Standortdaten,
+Geräte- oder Werbe-IDs, Nutzungsstatistiken oder an den Entwickler gesendete Absturzberichte.</p>
 
-<h2>Welche Daten die App verarbeitet</h2>
-<ul>
-  <li>
-    <strong>Tonaufnahme des Geräts.</strong> Nach deiner ausdrücklichen Zustimmung nimmt die App
-    über die Android-Funktion „Bildschirm-/Audioaufnahme“ (MediaProjection) den Ton auf, den andere
-    Apps abspielen. <strong>Das Mikrofon wird nicht verwendet.</strong> Der Ton wird weder
-    gespeichert noch aufgezeichnet noch an uns übertragen: Ein Server, der auf deinem Telefon selbst
-    läuft, liefert ihn direkt an den Lautsprecher in deinem Netzwerk aus. Mit dem Beenden der
-    Übertragung endet die Verarbeitung.
-  </li>
-  <li>
-    <strong>Adressen im lokalen Netzwerk.</strong> Zum Finden der Lautsprecher fragt die App im WLAN
-    per mDNS nach Sonos-Geräten und verarbeitet deren Namen und IP-Adressen — ausschließlich auf
-    deinem Gerät und ausschließlich im lokalen Netzwerk.
-  </li>
-</ul>
+<h2>5. Berechtigungen</h2>
+<table>
+<thead><tr><th>Berechtigung</th><th>Zweck</th></tr></thead>
+<tbody>
+<tr><td><code>RECORD_AUDIO</code></td><td>Technische Voraussetzung für Android Playback Capture; das Mikrofon selbst wird nicht aufgenommen.</td></tr>
+<tr><td><code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_MEDIA_PROJECTION</code></td><td>Sichtbarer Vordergrunddienst für die aktive Audioübertragung.</td></tr>
+<tr><td><code>POST_NOTIFICATIONS</code></td><td>Auf Android 13+ Anzeige der Übertragungsbenachrichtigung im Benachrichtigungsbereich. Ohne diese Erlaubnis bleibt Stoppen in der App möglich; Android kann weiterhin einen Systemhinweis zum Vordergrunddienst anzeigen.</td></tr>
+<tr><td><code>INTERNET</code></td><td>Lokaler HTTP-Stream und lokale Anfragen an den Lautsprecher.</td></tr>
+<tr><td><code>ACCESS_WIFI_STATE</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Lokale IP und Netzwerkzustand.</td></tr>
+<tr><td><code>CHANGE_WIFI_MULTICAST_STATE</code></td><td>mDNS-Lautsprechersuche.</td></tr>
+</tbody></table>
 
-<h2>Berechtigung für Bedienungshilfen</h2>
-<p>
-  Optional kannst du in den Android-Einstellungen den Dienst „SonosCast volume keys“ aktivieren. Er
-  dient ausschließlich dazu, die Lautstärketasten deines Telefons auf den Lautsprecher umzuleiten,
-  während eine Übertragung läuft. Android bietet dafür keine andere Schnittstelle an.
-</p>
-<p>
-  Der Dienst wertet <strong>ausschließlich</strong> die Tastencodes für „Lauter“ und „Leiser“ aus,
-  und nur während einer laufenden Übertragung. <strong>Bildschirminhalte werden nicht gelesen, nicht
-  gespeichert und nicht übertragen</strong>, ebenso wenig Eingaben, Texte oder andere Tastendrücke.
-  Der Dienst ist standardmäßig aus und jederzeit wieder abschaltbar.
-</p>
+<h3>Optionaler Bedienungshilfendienst</h3>
+<p>Der optionale Dienst „SonosCast-Lautstärketasten“ kann während einer aktiven Übertragung die
+physischen Lauter-/Leiser-Tasten an den ausgewählten Lautsprecher weitergeben. Android kann dem
+Dienst Hardware-Tastenereignisse bereitstellen. SonosCast prüft nur den Tastencode und ignoriert
+jedes Ereignis außer Lauter und Leiser. Die App liest weder eingegebenen Text noch
+Bildschirminhalte und speichert oder teilt keine Tastenereignisse, persönlichen oder sensiblen
+Daten. Der Dienst ist standardmäßig ausgeschaltet und jederzeit deaktivierbar.</p>
 
-<h2>Übertragung im Netzwerk</h2>
-<p>
-  Die Verbindung zwischen Telefon und Lautsprecher läuft unverschlüsselt über HTTP innerhalb deines
-  lokalen Netzwerks — Sonos-Lautsprecher unterstützen für diesen Zweck kein HTTPS. Wer sich im
-  selben Netzwerk befindet, könnte den übertragenen Ton grundsätzlich mitlesen. Nutze die App
-  deshalb nicht in fremden oder öffentlichen WLANs.
-</p>
+<h2>6. Sicherheit im lokalen Netzwerk</h2>
+<p>Die Kommunikation zum Lautsprecher erfolgt unverschlüsselt per HTTP, weil die lokale
+Lautsprechersteuerung und der Stream diese Verbindung verwenden. Personen oder Geräte im selben
+Netzwerksegment könnten den Audiostream unter Umständen abrufen, solange eine Übertragung läuft.
+SonosCast sollte deshalb nicht in fremden oder öffentlichen WLANs verwendet werden.</p>
 
-<h2>Lautstärke des Telefons</h2>
-<p>
-  Während einer Übertragung setzt die App die Medienlautstärke des Telefons auf null, damit der Ton
-  nicht doppelt zu hören ist, und stellt den vorherigen Wert beim Beenden wieder her. Es werden
-  dabei keine Daten erhoben.
-</p>
+<h2>7. Rechtsgrundlage, Empfänger und Drittlandtransfer</h2>
+<p>Soweit die lokale Verarbeitung personenbezogene Daten betrifft, erfolgt sie auf Veranlassung der
+Nutzerin oder des Nutzers nach ausdrücklichem Start und Android-Freigabe (Art. 6 Abs. 1 lit. a
+DSGVO). Es gibt keine Empfänger, Auftragsverarbeiter oder Drittlandübermittlung durch SonosCast.
+Google verarbeitet im Rahmen von Google Play eigene Daten nach den dafür geltenden Bedingungen.</p>
 
-<h2>Keine Weitergabe, keine Server</h2>
-<p>
-  Die App sendet keine Daten an Server des Anbieters — es gibt keine. Es findet keine Übermittlung
-  an Dritte statt, auch nicht in Drittländer. Es werden keine Analyse-, Absturz- oder Werbe-SDKs
-  eingesetzt.
-</p>
+<h2>8. Speicherdauer und Beenden</h2>
+<p>SonosCast speichert keine Inhaltsdaten dauerhaft. Die laufende Verarbeitung kann jederzeit in
+der App beendet werden. Wenn Android die Übertragungsbenachrichtigung anzeigen darf, kann die
+Übertragung auch dort pausiert oder gestoppt werden. Eine Deinstallation beendet ebenfalls jede
+Verarbeitung.</p>
 
-<h2>Rechtsgrundlage</h2>
-<p>
-  Soweit die beschriebene Verarbeitung überhaupt personenbezogene Daten betrifft, findet sie
-  ausschließlich lokal auf deinem Gerät und auf deine Veranlassung statt. Grundlage ist deine
-  Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die du durch das Starten einer Übertragung erteilst
-  und durch deren Beenden jederzeit widerrufen kannst.
-</p>
+<h2>9. Rechte betroffener Personen</h2>
+<p>Betroffenen Personen stehen insbesondere Auskunft, Berichtigung, Löschung, Einschränkung,
+Datenübertragbarkeit, Widerspruch und das Beschwerderecht bei einer Datenschutzaufsichtsbehörde zu.
+Da der Verantwortliche über SonosCast keine personenbezogenen Nutzerdaten empfängt, liegen ihm in
+der Regel keine Daten vor, zu denen Auskunft erteilt oder die gelöscht werden könnten. Anfragen
+können an die oben genannte E-Mail-Adresse gerichtet werden.</p>
 
-<h2>Speicherdauer</h2>
-<p>
-  Tondaten werden nicht gespeichert. Lokale Einstellungen bleiben bis zum Löschen der App-Daten oder
-  zur Deinstallation erhalten.
-</p>
-
-<h2>Deine Rechte</h2>
-<p>
-  Dir stehen die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit
-  und Widerspruch nach der DSGVO zu, ebenso das Recht auf Beschwerde bei einer
-  Datenschutz-Aufsichtsbehörde. Da uns keine Daten über dich vorliegen, können wir zu deiner Person
-  keine Auskunft erteilen. Alle lokal gespeicherten Daten kannst du selbst löschen, indem du die
-  App-Daten löschst oder die App deinstallierst.
-</p>
-
-<h2>Änderungen</h2>
-<p>
-  Bei Funktionsänderungen wird diese Erklärung angepasst. Maßgeblich ist die jeweils unter dieser
-  Adresse veröffentlichte Fassung.
-</p>
-
+<h2>10. Kinder, Änderungen und Marke</h2>
+<p>Die App richtet sich nicht an Kinder und erhebt keine Daten von Kindern. Wesentliche Änderungen
+werden vor Inkrafttreten unter dieser URL veröffentlicht. Sonos ist eine Marke von Sonos, Inc.
+SonosCast ist eine unabhängige Drittanbieter-App, keine offizielle Sonos-App und steht in keiner
+Verbindung zu Sonos, Inc.</p>
 </body>
 </html>
