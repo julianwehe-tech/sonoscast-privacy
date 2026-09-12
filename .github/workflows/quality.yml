@@ -1,0 +1,24 @@
+name: Quality
+
+on: [push, pull_request]
+
+permissions: {contents: read}
+
+jobs:
+  static-site:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with: {persist-credentials: false}
+      - name: Validate published assets
+        run: |
+          test -s index.html
+          test -s sonoscast-accessibility-disclosure-v7.mp4
+          node <<'NODE'
+          const fs = require('node:fs');
+          const html = fs.readFileSync('index.html', 'utf8');
+          if (!/^<!doctype html>/i.test(html) || !/<html[\s>]/i.test(html) || !/<\/html>/i.test(html)) {
+            throw new Error('index.html is not a complete HTML document');
+          }
+          NODE
